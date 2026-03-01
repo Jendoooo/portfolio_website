@@ -14,6 +14,17 @@ function mlShot(url: string) {
 
 const projects = [
   {
+    name: "Job Hunt Nigeria — Assessment Platform",
+    desc: "A comprehensive, full-stack assessment platform featuring SHL-style interactive simulations, dynamic question generation, and complex scoring algorithms. Built with a resilient frontend caching layer, Supabase row-level security, and DeepSeek AI coaching integrated via Vercel serverless proxy.",
+    tags: ["React 19", "Supabase", "Tailwind", "DeepSeek API", "Framer Motion"],
+    link: "https://job-hunt-nga.vercel.app",
+    linkLabel: "Live Site (Auth Req)",
+    github: null,
+    highlight: true,
+    embedUrl: null,
+    screenshotUrl: mlShot("https://job-hunt-nga.vercel.app"),
+  },
+  {
     name: "FPL Analytics Platform",
     desc: "Full-stack Fantasy Premier League analytics tool. 13-module Python data engine with a 14-step weekly pipeline, expected-points models, formation optimisers, and transfer planners. React + Vite + FastAPI, deployed on Vercel.",
     tags: ["Python", "FastAPI", "React", "Vite", "Tailwind", "Vercel"],

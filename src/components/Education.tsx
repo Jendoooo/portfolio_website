@@ -60,14 +60,14 @@ export default function Education() {
               )}
 
               {e.awards && e.awards.length > 0 && (
-                <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-white/10">
+                <div className="space-y-2 mt-4 pt-4 border-t border-white/10">
                   {e.awards.map((a) => (
-                    <span
-                      key={a}
-                      className="px-3 py-1.5 bg-white/5 border border-white/10 text-[10px] sm:text-xs uppercase tracking-wider text-blue-100/90 rounded-full font-semibold outline outline-1 outline-white/5"
-                    >
-                      {a}
-                    </span>
+                    <div key={a} className="flex items-center gap-3">
+                      <span className="shrink-0 w-1.5 h-1.5 rounded-full bg-amber-400 opacity-60"></span>
+                      <span className="text-xs font-medium text-blue-200/90 tracking-wide">
+                        {a}
+                      </span>
+                    </div>
                   ))}
                 </div>
               )}
