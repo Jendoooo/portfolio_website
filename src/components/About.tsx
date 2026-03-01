@@ -23,17 +23,15 @@ const skills = [
 
 export default function About() {
   return (
-    <section id="about" className="py-16 px-4 md:py-24 md:px-6 bg-white">
+    <section id="about" className="py-16 px-4 md:py-24 md:px-6 bg-white relative z-10 -mt-10 rounded-t-3xl shadow-[0_-20px_40px_-15px_rgba(0,0,0,0.05)]">
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16 items-start">
           <div>
             <p className="text-[#0D9488] font-semibold text-[10px] tracking-[0.25em] uppercase mb-4">
-              About
+              About Me
             </p>
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1F3864] mb-8">
-              Engineer by training,
-              <br />
-              data professional by choice.
+            <h2 className="font-[family-name:var(--font-syne)] font-black tracking-tight text-4xl md:text-5xl text-[#1F3864] mb-8">
+              I build data architecture that scales businesses.
             </h2>
             <div className="space-y-6 font-light text-[17px] leading-[1.8] text-gray-600">
               <p>

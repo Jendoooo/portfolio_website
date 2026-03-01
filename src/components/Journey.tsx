@@ -31,7 +31,7 @@ export default function Journey() {
           <p className="text-[#0D9488] font-semibold text-[10px] tracking-[0.25em] uppercase mb-4">
             The journey
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-12">
+          <h2 className="font-[family-name:var(--font-syne)] font-black tracking-tight text-4xl md:text-5xl text-white mb-12">
             Behind the commits
           </h2>
         </RevealOnScroll>

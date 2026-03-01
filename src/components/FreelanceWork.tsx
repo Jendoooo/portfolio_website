@@ -121,7 +121,7 @@ export default function FreelanceWork() {
           <p className="text-[#0D9488] font-semibold text-[10px] tracking-[0.25em] uppercase mb-4">
             Upwork · Top Rated · 100% Job Success
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-[#1F3864] mb-4">
+          <h2 className="font-[family-name:var(--font-syne)] font-black tracking-tight text-4xl md:text-5xl text-[#1F3864] mb-4">
             Client & Freelance Work
           </h2>
           <p className="font-light text-[17px] leading-[1.8] text-gray-600 mb-8 max-w-3xl">
@@ -159,11 +159,10 @@ export default function FreelanceWork() {
               key={tab}
               type="button"
               onClick={() => setActiveTab(tab)}
-              className={`relative pb-3 text-sm font-semibold transition-colors ${
-                activeTab === tab
+              className={`relative pb-3 text-sm font-semibold transition-colors ${activeTab === tab
                   ? "text-[#1F3864]"
                   : "text-gray-400 hover:text-[#1F3864]"
-              }`}
+                }`}
             >
               {tab}
               {activeTab === tab && (

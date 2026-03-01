@@ -55,8 +55,8 @@ export default function Experience() {
           <p className="text-[#0D9488] font-semibold text-[10px] tracking-[0.25em] uppercase mb-4">
             Career
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-[#1F3864] mb-12">
-            Experience
+          <h2 className="font-[family-name:var(--font-syne)] font-black tracking-tight text-4xl md:text-5xl text-[#1F3864] mb-12">
+            Professional Experience
           </h2>
         </RevealOnScroll>
 

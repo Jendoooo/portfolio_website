@@ -35,7 +35,7 @@ export default function Research() {
           <p className="text-[#0D9488] font-semibold text-sm tracking-widest uppercase mb-3">
             Academic and Technical Research
           </p>
-          <h2 className="text-4xl font-bold text-[#1F3864] mb-4">Research</h2>
+          <h2 className="font-[family-name:var(--font-syne)] font-black tracking-tight text-4xl md:text-5xl text-[#1F3864] mb-4">Research</h2>
           <p className="text-gray-500 text-base mb-12 max-w-2xl">
             My research combines computational engineering, reproducible data
             workflows, and industrial modelling, with a focus on energy systems

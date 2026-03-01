@@ -34,7 +34,7 @@ export default function Education() {
         <p className="text-teal-400 font-semibold text-[10px] tracking-[0.25em] uppercase mb-4">
           Academic background
         </p>
-        <h2 className="text-4xl md:text-5xl font-bold text-white mb-12">Education & Awards</h2>
+        <h2 className="font-[family-name:var(--font-syne)] font-black tracking-tight text-4xl md:text-5xl text-white mb-12">Education & Awards</h2>
 
         <div className="grid md:grid-cols-2 gap-8">
           {education.map((e, i) => (
@@ -59,16 +59,18 @@ export default function Education() {
                 </p>
               )}
 
-              <div className="flex flex-col gap-2 relative z-10">
-                {e.awards.map((a) => (
-                  <div key={a} className="flex items-center gap-3">
-                    <span className="shrink-0 w-1.5 h-1.5 rounded-full bg-amber-400 opacity-60"></span>
-                    <span className="text-xs font-medium text-blue-200/90 tracking-wide">
+              {e.awards && e.awards.length > 0 && (
+                <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-white/10">
+                  {e.awards.map((a) => (
+                    <span
+                      key={a}
+                      className="px-3 py-1.5 bg-amber-400/5 text-amber-300 border border-amber-400/20 text-[10px] sm:text-xs uppercase tracking-wider rounded-full font-bold shadow-sm"
+                    >
                       {a}
                     </span>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
         </div>

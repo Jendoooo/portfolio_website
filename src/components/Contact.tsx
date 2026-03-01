@@ -36,11 +36,11 @@ export default function Contact() {
     <section id="contact" className="py-16 px-4 md:py-24 md:px-6 bg-[#1F3864]">
       <div className="max-w-6xl mx-auto">
         <div className="max-w-2xl">
-          <p className="text-teal-400 font-semibold text-[10px] tracking-[0.25em] uppercase mb-4">
-            Let&apos;s talk
+          <p className="text-[#0D9488] font-semibold text-[10px] tracking-[0.25em] uppercase mb-4 text-center md:text-left">
+            Let&apos;s connect
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Open to opportunities
+          <h2 className="font-[family-name:var(--font-syne)] font-black tracking-tight text-4xl md:text-5xl text-white mb-6">
+            Get in touch
           </h2>
           <p className="font-light text-[17px] leading-[1.8] text-blue-200 mb-12">
             Currently open to full-time roles in data engineering, data architecture, and operations analytics — particularly in energy, logistics, and consulting. Based in the United Kingdom.

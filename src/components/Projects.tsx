@@ -100,7 +100,7 @@ export default function Projects() {
           <p className="text-[#0D9488] font-semibold text-[10px] tracking-[0.25em] uppercase mb-4">
             Work
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-[#1F3864] mb-12">
+          <h2 className="font-[family-name:var(--font-syne)] font-black tracking-tight text-4xl md:text-5xl text-[#1F3864] mb-12">
             Projects and Deliverables
           </h2>
         </RevealOnScroll>
@@ -118,14 +118,14 @@ export default function Projects() {
               variants={scaleIn}
               whileHover={{
                 y: -6,
-                boxShadow: "0 20px 40px -12px rgba(31,56,100,0.15)",
+                boxShadow: "0 20px 40px -12px rgba(13,148,136,0.3)",
+                scale: 1.01,
               }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className={`relative rounded-2xl overflow-hidden flex flex-col ${
-                project.highlight
-                  ? "md:col-span-2 p-[1px]"
+              className={`relative rounded-2xl overflow-hidden group ${project.highlight
+                  ? "md:col-span-2 p-[1px] hover:ring-2 ring-[#0D9488]/50 transition-all duration-300"
                   : "border border-gray-100 bg-white"
-              }`}
+                }`}
             >
               {/* ── Featured cards (FPL, Fintry) ── */}
               {project.highlight && (
@@ -139,9 +139,8 @@ export default function Projects() {
                   <div className="relative z-10 rounded-[15px] border border-[#0D9488]/20 bg-white h-full flex flex-col">
                     {/* Preview area */}
                     <div
-                      className={`w-full bg-gray-100 relative border-b border-gray-100 overflow-hidden flex-shrink-0 ${
-                        project.embedUrl ? "h-64 md:h-[480px]" : "h-48 md:h-64"
-                      }`}
+                      className={`w-full bg-gray-100 relative border-b border-gray-100 overflow-hidden flex-shrink-0 ${project.embedUrl ? "h-64 md:h-[480px]" : "h-48 md:h-64"
+                        }`}
                     >
                       {project.embedUrl ? (
                         <iframe
@@ -214,16 +213,14 @@ function ProjectBody({ project }: { project: Project }) {
       )}
 
       <h3
-        className={`font-bold text-[#1F3864] mb-2 ${
-          project.highlight ? "text-2xl" : "text-base"
-        }`}
+        className={`font-bold text-[#1F3864] mb-2 ${project.highlight ? "text-2xl" : "text-base"
+          }`}
       >
         {project.name}
       </h3>
       <p
-        className={`font-light text-gray-600 leading-[1.8] flex-1 mb-6 ${
-          project.highlight ? "text-[17px]" : "text-sm"
-        }`}
+        className={`font-light text-gray-600 leading-[1.8] flex-1 mb-6 ${project.highlight ? "text-[17px]" : "text-sm"
+          }`}
       >
         {project.desc}
       </p>
