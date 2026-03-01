@@ -9,26 +9,63 @@ const syne = Syne({
 });
 
 export const metadata: Metadata = {
-  title: "Olajide Ayeola — Data Engineer & Analyst",
+  metadataBase: new URL("https://olajideayeola.vercel.app"),
+  title: {
+    default: "Olajide Ayeola | Data Engineer, Analytics Architect & Full-Stack Developer",
+    template: "%s | Olajide Ayeola",
+  },
   description:
-    "Portfolio of Olajide Ayeola — Chemical Engineer turned Data Professional. ETL pipelines, Power BI dashboards, full-stack applications, and energy sector expertise.",
+    "Portfolio of Olajide Ayeola, a Data Engineer and Analytics Architect based in the UK. Specializing in ETL pipelines, Python data engines, Power BI dashboards, and full-stack React/Next.js platforms for operations analytics.",
   keywords: [
     "Olajide Ayeola",
-    "Data Engineer",
-    "Python",
-    "Power BI",
-    "Next.js",
-    "Chemical Engineering",
+    "Data Engineer portfolio",
+    "Analytics Architect",
+    "Data Engineering UK",
+    "Python Developer",
+    "Power BI dashboards",
+    "Next.js Developer",
+    "Chemical Engineer to Data Engineer",
     "Operations Analytics",
+    "Lagos to UK Data Engineer"
   ],
-  authors: [{ name: "Olajide Ayeola" }],
+  authors: [{ name: "Olajide Ayeola", url: "https://olajideayeola.vercel.app" }],
+  creator: "Olajide Ayeola",
   openGraph: {
-    title: "Olajide Ayeola — Data Engineer & Analyst",
-    description:
-      "ETL pipelines, Power BI dashboards, full-stack applications, and energy sector expertise.",
-    url: "https://olajideayeola.vercel.app",
-    siteName: "Olajide Ayeola Portfolio",
     type: "website",
+    locale: "en_GB",
+    url: "https://olajideayeola.vercel.app",
+    title: "Olajide Ayeola | Data Engineer & Analytics Architect",
+    description:
+      "Explore the portfolio of Olajide Ayeola: ETL pipelines, interactive dashboards, and full-stack data platforms transforming engineering operations.",
+    siteName: "Olajide Ayeola Portfolio",
+    images: [
+      {
+        url: "/photos/hero.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Olajide Ayeola - Data Engineer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Olajide Ayeola | Data Engineer & Analytics Architect",
+    description: "ETL pipelines, Python data engines, and full-stack platforms.",
+    images: ["/photos/hero.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://olajideayeola.vercel.app",
   },
 };
 
