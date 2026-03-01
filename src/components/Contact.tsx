@@ -43,7 +43,7 @@ export default function Contact() {
             Open to opportunities
           </h2>
           <p className="font-light text-[17px] leading-[1.8] text-blue-200 mb-12">
-            Currently open to full-time roles in data engineering and operations analytics — particularly in energy, logistics, and consulting. Tier 2 visa sponsorship welcome.
+            Currently open to full-time roles in data engineering, data architecture, and operations analytics — particularly in energy, logistics, and consulting. Based in the United Kingdom.
           </p>
 
           <div className="space-y-4">

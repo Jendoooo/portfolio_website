@@ -5,7 +5,7 @@ const education = [
     location: "Glasgow, United Kingdom",
     period: "2024 – 2025",
     awards: [
-      "UK Commonwealth Shared Scholar",
+      "Commonwealth Shared Scholar",
       "PTDF Overseas Postgraduate Scholar",
       "Outstanding Renewable Industry Project",
     ],

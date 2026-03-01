@@ -6,6 +6,17 @@ import RevealOnScroll from "@/components/RevealOnScroll";
 
 const experiences = [
   {
+    title: "Lead Data Engineer & Solutions Architect",
+    company: "Mobo Digital",
+    location: "United Kingdom",
+    period: "2025 – Present",
+    bullets: [
+      "Founded and operate an independent data consultancy — delivering 20+ projects across web scraping, ETL pipelines, Power BI dashboards, and analytics for clients in the US, UK, Canada, and Australia.",
+      "Built the Fintry District Heating Analytics Platform — integrated 8M+ API telemetry points into real-time Power BI dashboards tracking emissions, heat losses, RHI revenue, and boiler performance.",
+      "Top Rated on Upwork with 100% Job Success Score across 20+ completed projects.",
+    ],
+  },
+  {
     title: "Planning Officer and Operations Data Analyst",
     company: "Lekki Freeport Terminal (CMA CGM Group)",
     location: "Lagos, Nigeria - Nigeria's largest seaport",

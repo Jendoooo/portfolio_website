@@ -7,6 +7,11 @@ import { scaleIn, staggerContainer } from "@/lib/animations";
 const FINTRY_EMBED =
   "https://app.powerbi.com/view?r=eyJrIjoiOTQyMzQ5NjAtNTYyMC00MGQwLTkwYWEtNGE0YTI5YzFjOWViIiwidCI6IjJlYWUxODYwLTQwYmUtNDdhNC04MTYxLTZhN2NmYzBjZmEwNyJ9&pageName=f318b65a977e39964372";
 
+/** microlink.io — renders a headless screenshot and serves from CDN cache */
+function mlShot(url: string) {
+  return `https://api.microlink.io/?url=${encodeURIComponent(url)}&screenshot=true&meta=false&embed=screenshot.url`;
+}
+
 const projects = [
   {
     name: "FPL Analytics Platform",
@@ -17,36 +22,40 @@ const projects = [
     github: "https://github.com/Jendoooo/fpl-analytics",
     highlight: true,
     embedUrl: null,
+    screenshotUrl: mlShot("https://fpl-analytics.vercel.app/"),
   },
   {
-    name: "Iby Closet - E-Commerce Platform",
+    name: "Iby Closet — E-Commerce Platform",
     desc: "Production e-commerce platform for a fashion brand. Product catalogues, cart, Paystack checkout, order management, abandoned cart recovery, and a full admin CMS with Supabase.",
     tags: ["Next.js 14", "Supabase", "TypeScript", "Paystack"],
-    link: null,
-    linkLabel: null,
+    link: "https://www.ibycloset.com/",
+    linkLabel: "Live site",
     github: null,
     highlight: false,
     embedUrl: null,
+    screenshotUrl: mlShot("https://www.ibycloset.com/"),
   },
   {
     name: "Fintry District Heating Analytics Dashboard",
-    desc: "Real-time Power BI analytics platform for a UK district heating network — integrating 8M+ API telemetry points. Tracks emissions, heat losses, and boiler performance. Includes RHI revenue modelling and post-upgrade impact analysis. Built with Azure SQL and published May 2025.",
+    desc: "Real-time Power BI analytics platform for a UK district heating network — integrating 8M+ API telemetry points. Tracks emissions, heat losses, and boiler performance. Includes RHI revenue modelling and post-upgrade impact analysis. Built with Azure SQL, published May 2025.",
     tags: ["Power BI", "Azure SQL", "API Integration", "DAX", "Sustainable Energy"],
     link: FINTRY_EMBED,
     linkLabel: "Open live dashboard",
     github: null,
     highlight: true,
     embedUrl: FINTRY_EMBED,
+    screenshotUrl: null,
   },
   {
-    name: "3:15 Fabrics - E-Commerce",
+    name: "3:15 Fabrics — E-Commerce",
     desc: "E-commerce platform for a fabrics business with product management, collections, and checkout workflows built in Next.js and Supabase.",
     tags: ["Next.js", "Supabase", "TypeScript"],
-    link: null,
-    linkLabel: null,
+    link: "https://3-15fabrics.vercel.app/",
+    linkLabel: "Live site",
     github: null,
     highlight: false,
     embedUrl: null,
+    screenshotUrl: mlShot("https://3-15fabrics.vercel.app/"),
   },
   {
     name: "Chess Analysis Platform",
@@ -57,6 +66,7 @@ const projects = [
     github: "https://github.com/Jendoooo",
     highlight: false,
     embedUrl: null,
+    screenshotUrl: null,
   },
 ];
 
@@ -89,12 +99,13 @@ export default function Projects() {
                 boxShadow: "0 20px 40px -12px rgba(31,56,100,0.15)",
               }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className={`relative rounded-2xl overflow-hidden ${
+              className={`relative rounded-2xl overflow-hidden flex flex-col ${
                 project.highlight
                   ? "md:col-span-2 p-[1px]"
                   : "border border-gray-100 bg-white"
               }`}
             >
+              {/* ── Featured cards (FPL, Fintry) ── */}
               {project.highlight && (
                 <>
                   <motion.div
@@ -103,9 +114,10 @@ export default function Projects() {
                     animate={{ rotate: 360 }}
                     transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
                   />
-                  <div className="relative z-10 rounded-[15px] border border-[#0D9488]/20 bg-white h-full">
+                  <div className="relative z-10 rounded-[15px] border border-[#0D9488]/20 bg-white h-full flex flex-col">
+                    {/* Preview area */}
                     <div
-                      className={`w-full bg-gray-100 relative border-b border-gray-100 overflow-hidden ${
+                      className={`w-full bg-gray-100 relative border-b border-gray-100 overflow-hidden flex-shrink-0 ${
                         project.embedUrl ? "h-64 md:h-[480px]" : "h-48 md:h-64"
                       }`}
                     >
@@ -116,11 +128,16 @@ export default function Projects() {
                           title={`${project.name} live preview`}
                           allowFullScreen
                         />
+                      ) : project.screenshotUrl ? (
+                        <img
+                          src={project.screenshotUrl}
+                          alt={`${project.name} screenshot`}
+                          className="w-full h-full object-cover object-top"
+                          loading="lazy"
+                        />
                       ) : (
-                        <div className="absolute inset-0 bg-gradient-to-br from-teal-900 to-teal-700 flex flex-col items-center justify-center p-6">
-                          <span className="text-white/40 text-sm font-medium">
-                            project-fpl-screenshot.jpg
-                          </span>
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#1F3864] to-[#0D9488]/60 flex items-center justify-center">
+                          <span className="text-white/30 text-sm font-medium">preview</span>
                         </div>
                       )}
                     </div>
@@ -129,7 +146,22 @@ export default function Projects() {
                 </>
               )}
 
-              {!project.highlight && <ProjectBody project={project} />}
+              {/* ── Regular cards (iby_closet, 3:15 Fabrics, Chess) ── */}
+              {!project.highlight && (
+                <div className="flex flex-col h-full">
+                  {project.screenshotUrl && (
+                    <div className="w-full h-44 overflow-hidden border-b border-gray-100 flex-shrink-0">
+                      <img
+                        src={project.screenshotUrl}
+                        alt={`${project.name} screenshot`}
+                        className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
+                  <ProjectBody project={project} />
+                </div>
+              )}
             </motion.article>
           ))}
         </motion.div>
@@ -147,11 +179,12 @@ interface Project {
   github: string | null;
   highlight: boolean;
   embedUrl: string | null;
+  screenshotUrl: string | null;
 }
 
 function ProjectBody({ project }: { project: Project }) {
   return (
-    <div className="p-6 flex flex-col h-full">
+    <div className="p-6 flex flex-col flex-1">
       {project.highlight && (
         <span className="self-start text-[10px] font-bold text-[#0D9488] uppercase tracking-widest mb-3">
           Featured
