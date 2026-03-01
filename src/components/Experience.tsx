@@ -6,14 +6,14 @@ import RevealOnScroll from "@/components/RevealOnScroll";
 
 const experiences = [
   {
-    title: "Lead Data Engineer & Solutions Architect",
+    title: "Founder & Lead Engineer",
     company: "Mobo Digital",
-    location: "United Kingdom",
-    period: "2025 – Present",
+    location: "Nigeria / United Kingdom",
+    period: "Dec 2025 – Present",
     bullets: [
-      "Founded and operate an independent data consultancy — delivering 20+ projects across web scraping, ETL pipelines, Power BI dashboards, and analytics for clients in the US, UK, Canada, and Australia.",
-      "Built the Fintry District Heating Analytics Platform — integrated 8M+ API telemetry points into real-time Power BI dashboards tracking emissions, heat losses, RHI revenue, and boiler performance.",
-      "Top Rated on Upwork with 100% Job Success Score across 20+ completed projects.",
+      "Founded a full-service digital consultancy on returning from Glasgow — delivering production web platforms and data solutions for clients across Nigeria and internationally.",
+      "Shipped ibycloset.com, orderfromrc.com, oriyomiayeola.com, and 3-15fabrics.vercel.app — e-commerce and business platforms built with Next.js, TypeScript, and Supabase.",
+      "Continued 20+ data and analytics engagements: web scraping pipelines, ETL systems, and Power BI dashboards for clients in the US, UK, Canada, and Australia.",
     ],
   },
   {

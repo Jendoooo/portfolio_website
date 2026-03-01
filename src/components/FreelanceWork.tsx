@@ -64,9 +64,9 @@ const freelanceProjects: FreelanceProject[] = [
   {
     name: "SteamDB Historical Data Scraper",
     category: "Web Scraping",
-    desc: "Test assignment scraping historical player counts, follower trends, and review data for 100 Steam games from SteamDB — scoped for a potential 200,000-game full run.",
+    desc: "Scraped historical player counts, follower trends, and review data from SteamDB for 100 games — SteamDB actively blocks scrapers, so this required API reverse-engineering. Delivered as a proof-of-concept for a potential 200,000-game full catalog run.",
     tags: ["Python", "Jupyter", "Selenium", "API reverse-engineering"],
-    scale: "100 games · test for 200k catalog",
+    scale: "100 games · scoped for 200k",
   },
   {
     name: "Yahoo Finance Data Pipeline",

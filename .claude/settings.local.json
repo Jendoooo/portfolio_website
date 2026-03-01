@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run build)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(where npm)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
+      "Bash(git -C \"C:/Users/olaji/Desktop/project/portfolio_website\" log --oneline -10)",
+      "Bash(git -C \"C:/Users/olaji/Desktop/project/portfolio_website\" status --short)"
+    ]
+  }
+}
