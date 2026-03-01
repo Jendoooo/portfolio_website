@@ -96,3 +96,37 @@ When Gemini picks this up, focus on:
 1. Mobile responsive audit — all sections should look good at 375px
 2. Copy review — tone should be confident but not arrogant
 3. Check all `sm:` breakpoints
+
+---
+
+## Session 3 — 01 March 2026 (Content Updates)
+
+### Content Changes Made This Session
+
+1. **Fintry project added** — Power BI analytics dashboard for UK district heating network.
+   - Added to `Projects.tsx` as second featured card with live Power BI iframe embed (`h-64 md:h-[480px]`). Embed URL stored in `FINTRY_EMBED` constant.
+   - Added to `FreelanceWork.tsx` under Data & BI tab with live "View live dashboard →" link.
+   - Grid order in Projects: FPL → iby_closet → Fintry → 3:15 Fabrics → Chess (2 featured cards, each spanning 2 cols at md/lg).
+
+2. **Mobo Digital added to Experience** — Current role as Lead Data Engineer & Solutions Architect, UK, 2025–Present. Positioned at top of timeline (most recent first).
+
+3. **MSc Distinction added** — Updated in both `Education.tsx` (degree string) and `About.tsx` (bio para 1).
+
+4. **Location updated to United Kingdom** throughout:
+   - `Hero.tsx` — availability line, tagline
+   - `About.tsx` — new paragraph about Mobo Digital / UK
+   - `Contact.tsx` — removed "Tier 2 visa sponsorship welcome", now "Based in the United Kingdom"
+
+5. **Data engineering positioning strengthened**:
+   - Hero eyebrow: "Lead Data Engineer · Analytics Architect · Full-Stack Developer"
+   - Hero tagline: leads with "architecting data systems"
+   - Hero stats: 15+ → 20+ projects, 2 → 3 production platforms
+
+6. **Journey.tsx** — Framer Motion animations added (stagger + scaleIn, hover caption overlay). Phase 2 Codex gap now closed.
+
+### Audit Items for Next Session
+- [ ] `npm run build` — verify Power BI iframe doesn't break TypeScript
+- [ ] Test Fintry iframe loads correctly in browser (Power BI public embed may need `allow="fullscreen"` on some browsers)
+- [ ] Mobile audit of Fintry card — iframe height on mobile (`h-64`) may need adjustment
+- [ ] Check Projects grid layout at all breakpoints with 2 featured cards
+- [ ] Gemini: mobile audit of new Mobo Digital experience card and Fintry card in FreelanceWork

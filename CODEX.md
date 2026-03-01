@@ -487,3 +487,8 @@ import FreelanceWork from "@/components/FreelanceWork";
 **Task:** Implemented Phase 3 rebuild for project sections. Split personal showcase projects from client work by creating a new tabbed `FreelanceWork` section with animated tab transitions, active tab underline, staggered card entrances, and Upwork credential badge. Wired `FreelanceWork` into page order and navbar.
 **Files changed:** src/components/Projects.tsx, src/components/FreelanceWork.tsx, src/app/page.tsx, src/components/Navbar.tsx, src/components/About.tsx
 **Notes:** Build passes (`npm run build`). Existing warnings remain for `<img>` usage in Hero/About/Journey (`@next/next/no-img-element`).
+
+### [01 Mar 2026 07:46]
+**Task:** Re-applied missing premium motion tasks on top of the latest design updates. Added Hero cinematic entrance sequence, parallax background shift, and CountUp stats animation; upgraded Journey with staggered photo reveal and hover overlays; animated Experience timeline line-draw with staggered card reveals; enabled page entrance transition wrapper.
+**Files changed:** src/components/Hero.tsx, src/components/Journey.tsx, src/components/Experience.tsx, src/app/page.tsx
+**Notes:** `npm run build` passes. Remaining warnings are non-blocking `@next/next/no-img-element` notices in Hero/About/Journey.

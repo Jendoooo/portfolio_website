@@ -58,9 +58,9 @@ export default function About() {
               </blockquote>
 
               <p>
-                I also deliver freelance data and BI systems for clients across the
-                US, UK, Canada, and Australia, including procurement intelligence
-                pipelines and production dashboards.
+                Now based in the United Kingdom, I run Mobo Digital — an independent
+                data consultancy delivering 20+ projects globally, from government
+                procurement intelligence platforms to real-time district heating dashboards.
               </p>
 
               <p>
