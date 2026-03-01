@@ -40,6 +40,17 @@ const experiences = [
       "Analysed production performance of selected onshore wells using the OFM in-house software package, recommending well intervention programmes for production optimization."
     ],
   },
+  {
+    title: "Science Teacher & Debate Coach (NYSC)",
+    company: "Community Senior High School, Akodo",
+    location: "Lagos, Nigeria",
+    period: "May 2021 - May 2022",
+    bullets: [
+      "Served primarily as a Science Teacher under the mandatory National Youth Service Corps (NYSC) year of service.",
+      "Headed the quiz and debate teams, leading students to win the Local Government Quiz and Debate Championships.",
+      "Secured a second-place finish at the Presidential Debate Southwest Zonal Championships and the SPE Lagos Section Catch Them Young Science Competition."
+    ],
+  },
 ];
 
 export default function Experience() {

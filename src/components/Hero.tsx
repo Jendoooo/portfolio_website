@@ -118,6 +118,14 @@ export default function Hero() {
                 >
                   GitHub
                 </a>
+                <a
+                  href="https://medium.com/@olajideayeola"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3 border-2 border-gray-300 text-gray-700 font-semibold rounded-xl hover:border-[#1F3864] hover:text-[#1F3864] transition-colors"
+                >
+                  Medium
+                </a>
               </div>
 
               <div className="flex items-center gap-2 mt-6 text-sm text-gray-400">
