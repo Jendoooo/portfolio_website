@@ -6,7 +6,7 @@ import RevealOnScroll from "@/components/RevealOnScroll";
 import { fadeUp } from "@/lib/animations";
 
 // ── Sign up free at formspree.io → create a form → paste your endpoint here ──
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mjgedrwn";
 
 const links = [
   {
