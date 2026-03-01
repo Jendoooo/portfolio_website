@@ -104,6 +104,9 @@ const projects = [
 ];
 
 export default function Projects() {
+  const featuredProjects = projects.filter((p) => p.highlight);
+  const otherProjects = projects.filter((p) => !p.highlight);
+
   return (
     <section id="projects" className="py-16 px-4 md:py-24 md:px-6 bg-[#F8FAFC]">
       <div className="max-w-6xl mx-auto">
@@ -111,167 +114,162 @@ export default function Projects() {
           <p className="text-[#0D9488] font-semibold text-[10px] tracking-[0.25em] uppercase mb-4">
             Work
           </p>
-          <h2 className="font-[family-name:var(--font-syne)] font-black tracking-tight text-4xl md:text-5xl text-[#1F3864] mb-12">
+          <h2 className="font-[family-name:var(--font-syne)] font-black tracking-tight text-4xl md:text-5xl text-[#1F3864] mb-16">
             Projects and Deliverables
           </h2>
         </RevealOnScroll>
 
+        {/* ── Featured Projects (Horizontal Stack) ── */}
+        <div className="space-y-16 mb-24">
+          {featuredProjects.map((project, index) => (
+            <motion.article
+              key={project.name}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={scaleIn}
+              className="flex flex-col md:flex-row items-center gap-8 md:gap-12 group"
+            >
+              {/* Preview Area */}
+              <div
+                className={`w-full md:w-1/2 overflow-hidden rounded-2xl shadow-xl shadow-teal-900/5 bg-gray-100 border border-gray-200/60 relative ${index % 2 !== 0 ? "md:order-2" : "md:order-1"
+                  } ${project.embedUrl ? "h-[350px] md:h-[450px]" : "h-64 md:h-[380px]"}`}
+              >
+                {project.embedUrl ? (
+                  <iframe
+                    src={project.embedUrl}
+                    className="w-full h-full border-0"
+                    title={`${project.name} live preview`}
+                    allowFullScreen
+                  />
+                ) : project.screenshotUrl ? (
+                  <img
+                    src={project.screenshotUrl}
+                    alt={`${project.name} screenshot`}
+                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#1F3864] to-[#0D9488]/60 flex items-center justify-center">
+                    <span className="text-white/30 text-sm font-medium">preview</span>
+                  </div>
+                )}
+              </div>
+
+              {/* Text Content */}
+              <div className={`w-full md:w-1/2 flex flex-col ${index % 2 !== 0 ? "md:order-1" : "md:order-2"}`}>
+                <span className="text-[10px] font-bold text-[#0D9488] uppercase tracking-widest mb-3 flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span> Featured
+                </span>
+                <h3 className="font-[family-name:var(--font-syne)] font-bold text-[#1F3864] text-3xl md:text-4xl mb-4 leading-tight">
+                  {project.name}
+                </h3>
+                <p className="font-light text-gray-600 leading-[1.8] text-[17px] mb-8">
+                  {project.desc}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mb-8">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-3 py-1 bg-white text-[#1F3864] border border-gray-200 text-xs tracking-wide rounded-md font-semibold shadow-sm"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex gap-6 items-center">
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-6 py-3 bg-[#0D9488] text-white text-sm font-semibold rounded-xl hover:bg-teal-700 transition-colors shadow-lg shadow-teal-500/20"
+                    >
+                      {project.linkLabel ?? "Live demo"}
+                    </a>
+                  )}
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-semibold text-gray-500 hover:text-[#1F3864] transition-colors"
+                    >
+                      View Code &rarr;
+                    </a>
+                  )}
+                </div>
+              </div>
+            </motion.article>
+          ))}
+        </div>
+
+        {/* ── Other Projects (3-Column Grid) ── */}
+        <RevealOnScroll>
+          <h3 className="text-2xl font-bold text-[#1F3864] mb-8">Other Client & Personal Work</h3>
+        </RevealOnScroll>
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+          viewport={{ once: true, amount: 0.1 }}
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {projects.map((project) => (
+          {otherProjects.map((project) => (
             <motion.article
               key={project.name}
               variants={scaleIn}
-              whileHover={{
-                y: -6,
-                boxShadow: "0 20px 40px -12px rgba(13,148,136,0.3)",
-                scale: 1.01,
-              }}
-              transition={{ duration: 0.25, ease: "easeOut" }}
-              className={`relative rounded-2xl overflow-hidden group border border-gray-100 bg-white ${project.highlight
-                ? "md:col-span-2 lg:col-span-1 p-[1px] hover:ring-2 ring-[#0D9488]/50 transition-all duration-300"
-                : ""
-                }`}
+              whileHover={{ y: -4, boxShadow: "0 15px 30px -10px rgba(31,56,100,0.1)" }}
+              transition={{ duration: 0.2 }}
+              className="flex flex-col bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow h-full"
             >
-              {/* ── Featured cards (FPL, Fintry) ── */}
-              {project.highlight && (
-                <>
-                  <motion.div
-                    aria-hidden
-                    className="pointer-events-none absolute -inset-[140%] bg-[conic-gradient(from_0deg,rgba(13,148,136,0.06),rgba(13,148,136,0.75),rgba(31,56,100,0.6),rgba(13,148,136,0.06))]"
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+              {project.screenshotUrl && (
+                <div className="w-full h-40 overflow-hidden border-b border-gray-50 bg-gray-50 flex-shrink-0">
+                  <img
+                    src={project.screenshotUrl}
+                    alt={`${project.name} preview`}
+                    className="w-full h-full object-cover object-top opacity-90 hover:opacity-100 transition-opacity"
+                    loading="lazy"
                   />
-                  <div className="relative z-10 rounded-[15px] border border-[#0D9488]/20 bg-white h-full flex flex-col">
-                    {/* Preview area */}
-                    <div
-                      className={`w-full bg-gray-100 relative border-b border-gray-100 overflow-hidden flex-shrink-0 ${project.embedUrl ? "h-64 md:h-[480px]" : "h-48 md:h-64"
-                        }`}
-                    >
-                      {project.embedUrl ? (
-                        <iframe
-                          src={project.embedUrl}
-                          className="w-full h-full border-0"
-                          title={`${project.name} live preview`}
-                          allowFullScreen
-                        />
-                      ) : project.screenshotUrl ? (
-                        <img
-                          src={project.screenshotUrl}
-                          alt={`${project.name} screenshot`}
-                          className="w-full h-full object-cover object-top"
-                          loading="lazy"
-                        />
-                      ) : (
-                        <div className="absolute inset-0 bg-gradient-to-br from-[#1F3864] to-[#0D9488]/60 flex items-center justify-center">
-                          <span className="text-white/30 text-sm font-medium">preview</span>
-                        </div>
-                      )}
-                    </div>
-                    <ProjectBody project={project} />
-                  </div>
-                </>
-              )}
-
-              {/* ── Regular cards (iby_closet, 3:15 Fabrics, Chess) ── */}
-              {!project.highlight && (
-                <div className="flex flex-col h-full">
-                  {project.screenshotUrl && (
-                    <div className="w-full h-44 overflow-hidden border-b border-gray-100 flex-shrink-0">
-                      <img
-                        src={project.screenshotUrl}
-                        alt={`${project.name} screenshot`}
-                        className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
-                        loading="lazy"
-                      />
-                    </div>
-                  )}
-                  <ProjectBody project={project} />
                 </div>
               )}
+
+              <div className="p-6 flex flex-col flex-1">
+                <h4 className="font-bold text-[#1F3864] text-lg mb-2">{project.name}</h4>
+                <p className="font-light text-gray-500 text-sm leading-relaxed mb-6 flex-1">
+                  {project.desc}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.tags.map((tag) => (
+                    <span key={tag} className="px-2 py-1 bg-gray-50 text-gray-600 text-[10px] uppercase tracking-wider rounded border border-gray-100 font-semibold">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex gap-4 items-center mt-auto border-t border-gray-50 pt-4">
+                  {project.link && (
+                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-[#0D9488] hover:text-teal-700 uppercase tracking-wide">
+                      {project.linkLabel ?? "Live Site"}
+                    </a>
+                  )}
+                  {project.github && (
+                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-gray-400 hover:text-gray-700 uppercase tracking-wide">
+                      GitHub
+                    </a>
+                  )}
+                  {!project.link && !project.github && (
+                    <span className="text-xs text-gray-400 italic font-medium">Client project · NDA</span>
+                  )}
+                </div>
+              </div>
             </motion.article>
           ))}
         </motion.div>
       </div>
     </section>
-  );
-}
-
-interface Project {
-  name: string;
-  desc: string;
-  tags: string[];
-  link: string | null;
-  linkLabel: string | null;
-  github: string | null;
-  highlight: boolean;
-  embedUrl: string | null;
-  screenshotUrl: string | null;
-}
-
-function ProjectBody({ project }: { project: Project }) {
-  return (
-    <div className="p-6 flex flex-col flex-1">
-      {project.highlight && (
-        <span className="self-start text-[10px] font-bold text-[#0D9488] uppercase tracking-widest mb-3">
-          Featured
-        </span>
-      )}
-
-      <h3
-        className={`font-bold text-[#1F3864] mb-2 ${project.highlight ? "text-2xl" : "text-base"
-          }`}
-      >
-        {project.name}
-      </h3>
-      <p
-        className={`font-light text-gray-600 leading-[1.8] flex-1 mb-6 ${project.highlight ? "text-[17px]" : "text-sm"
-          }`}
-      >
-        {project.desc}
-      </p>
-
-      <div className="flex flex-wrap gap-2 mb-6">
-        {project.tags.map((tag) => (
-          <span
-            key={tag}
-            className="px-2 py-1 bg-[#F8FAFC] text-[#1F3864] text-[10px] uppercase tracking-wider rounded-md font-bold"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
-
-      <div className="flex gap-4 items-center mt-auto">
-        {project.link && (
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs font-semibold text-[#0D9488] hover:underline"
-          >
-            {project.linkLabel ?? "Live demo"} &rarr;
-          </a>
-        )}
-        {project.github && (
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs font-semibold text-gray-500 hover:text-[#1F3864]"
-          >
-            GitHub &rarr;
-          </a>
-        )}
-        {!project.link && !project.github && (
-          <span className="text-xs text-gray-400 italic">Client project · NDA</span>
-        )}
-      </div>
-    </div>
   );
 }
