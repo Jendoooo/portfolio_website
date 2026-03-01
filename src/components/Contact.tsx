@@ -33,32 +33,32 @@ const links = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-16 px-4 md:py-24 md:px-6 bg-[#1F3864]">
-      <div className="max-w-6xl mx-auto">
-        <div className="max-w-2xl">
+    <section id="contact" className="py-12 px-4 md:py-16 md:px-6 bg-[#1F3864]">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start md:justify-between gap-8 md:gap-12">
+        <div className="w-full">
           <p className="text-[#0D9488] font-semibold text-[10px] tracking-[0.25em] uppercase mb-4 text-center md:text-left">
             Let&apos;s connect
           </p>
           <h2 className="font-[family-name:var(--font-syne)] font-black tracking-tight text-4xl md:text-5xl text-white mb-6">
             Get in touch
           </h2>
-          <p className="font-light text-[17px] leading-[1.8] text-blue-200 mb-12">
-            Currently open to full-time roles in data engineering, data architecture, and operations analytics — particularly in energy, logistics, and consulting. Currently based in Lagos, Nigeria (UK visa eligible).
+          <p className="font-light text-[17px] leading-[1.8] text-blue-200 mb-10 w-full max-w-2xl text-center md:text-left">
+            Currently open to full-time roles in data engineering, data architecture, and operations analytics. Based in the United Kingdom (UK visa eligible).
           </p>
 
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {links.map((l) => (
               <a
                 key={l.label}
                 href={l.href}
                 target={l.href.startsWith("mailto") ? undefined : "_blank"}
                 rel="noopener noreferrer"
-                className="flex items-center gap-5 p-5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all group"
+                className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all group"
               >
                 <span className="text-teal-400">{l.icon}</span>
                 <div>
                   <p className="text-[10px] uppercase tracking-widest text-blue-300/70 font-semibold mb-0.5">{l.label}</p>
-                  <p className="text-white font-medium group-hover:text-teal-400 transition-colors">
+                  <p className="text-white text-sm font-medium group-hover:text-teal-400 transition-colors truncate">
                     {l.value}
                   </p>
                 </div>

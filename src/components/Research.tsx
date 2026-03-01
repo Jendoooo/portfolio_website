@@ -2,22 +2,10 @@ import RevealOnScroll from "@/components/RevealOnScroll";
 
 const research = [
   {
-    title: "Identifying Future Carbon Capture Materials",
-    context: "MSc Thesis - University of Strathclyde (Distinction, 2025)",
-    desc: "Developed a full computational workflow for CO2/CH4 separation on ZIF-8, focused on building reproducible consensus isotherms before prediction. The work combines adsorption data engineering, model fitting, and engineering interpretation for carbon capture materials screening.",
-    tags: ["MOFs", "ZIF-8", "CO2/CH4 Separation", "Carbon Capture"],
-  },
-  {
-    title: "Reproducibility-Screened Isotherm Dataset",
-    context: "NIST/ARPA-E Data Pipeline",
-    desc: "Built a Python workflow to collect and harmonise ZIF datasets from NIST and literature. From 256 ZIF-8 records, manually validated 45 candidate isotherms and retained high-quality experimental sets for robust consensus fitting and outlier-controlled analysis.",
-    tags: ["Python", "Data Validation", "Outlier Screening", "NIST/ARPA-E"],
-  },
-  {
-    title: "Toth + IAST Modelling and Benchmarking",
-    context: "Adsorption Modelling",
-    desc: "Fitted reproducible pure-component isotherms with the Toth model and predicted binary adsorption using IAST. Findings showed strong CO2 preference in theory, but also highlighted IAST limitations for flexible adsorbents such as ZIF-8, including underprediction of total loading versus experimental binary behaviour.",
-    tags: ["Toth Isotherm", "IAST", "Model Validation", "Process Insight"],
+    title: "MSc Thesis: Computational Carbon Capture & Isotherm Modelling",
+    context: "University of Strathclyde (Distinction, 2025)",
+    desc: "Developed a full computational data workflow for CO2/CH4 separation on ZIF-8. Built a Python pipeline to collect and harmonise 256 dataset records from NIST, screened for reproducible outlier-controlled consensus isotherms. Fitted data using Toth and IAST modelling, translating abstract adsorption data into robust industrial screening insights.",
+    tags: ["Data Engineering", "Python", "NIST Pipeline", "IAST Modelling", "Carbon Capture"],
   },
   {
     title: "Reservoir Simulation and Decline Curve Analysis",

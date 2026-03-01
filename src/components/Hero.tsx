@@ -86,7 +86,7 @@ export default function Hero() {
               I design data systems that get used in production by architecting
               ETL pipelines, Power BI dashboards, and full-stack analytics
               platforms. 90%+ reporting time saved at Nigeria&apos;s largest
-              seaport. Based in Lagos, Nigeria.
+              seaport. Based in the United Kingdom.
             </motion.p>
 
             <motion.div
@@ -123,7 +123,7 @@ export default function Hero() {
               <div className="flex items-center gap-2 mt-6 text-sm text-gray-400">
                 <span className="shrink-0 w-2 h-2 rounded-full bg-green-400 animate-pulse" />
                 <span>
-                  Available for roles · Based in Lagos, Nigeria · UK visa
+                  Available for roles · Based in the United Kingdom · UK visa
                   eligible
                 </span>
               </div>
