@@ -64,7 +64,7 @@ export default function Education() {
                   {e.awards.map((a) => (
                     <span
                       key={a}
-                      className="px-3 py-1.5 bg-white/5 border border-white/10 text-[10px] sm:text-xs uppercase tracking-wider text-blue-100/90 rounded-full font-semibold shadow-[index.tsx_11px_rgba(0,0,0,0.05)]"
+                      className="px-3 py-1.5 bg-white/5 border border-white/10 text-[10px] sm:text-xs uppercase tracking-wider text-blue-100/90 rounded-full font-semibold outline outline-1 outline-white/5"
                     >
                       {a}
                     </span>
