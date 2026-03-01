@@ -52,7 +52,7 @@ export default function Hero() {
               transition={{ delay: 0 }}
               className="text-[#0D9488] font-semibold text-[10px] tracking-[0.25em] uppercase mb-4"
             >
-              Lead Data Engineer . Analytics Architect . Full-Stack Developer
+              Lead Data Engineer · Analytics Architect · Full-Stack Developer
             </motion.p>
 
             <h1 className="font-[family-name:var(--font-syne)] font-black text-6xl md:text-9xl text-[#1F3864] leading-tight mb-6">
@@ -123,7 +123,7 @@ export default function Hero() {
               <div className="flex items-center gap-2 mt-6 text-sm text-gray-400">
                 <span className="shrink-0 w-2 h-2 rounded-full bg-green-400 animate-pulse" />
                 <span>
-                  Available for roles . Based in Lagos, Nigeria . UK visa
+                  Available for roles · Based in Lagos, Nigeria · UK visa
                   eligible
                 </span>
               </div>

@@ -29,6 +29,21 @@ Your brief is to fix all of this. Not by adding more components — by making wh
 
 ---
 
+### [01 March 2026]
+**Task:** Implemented the 4 visual upgrades from local audit and pushed all code to remote master.
+**Files changed:**
+- `src/components/About.tsx` (Syne typography, Hero-About section plane breaking overlap)
+- `src/components/Projects.tsx` (Syne typography, FPL featured hover thickness/ring)
+- `src/components/Experience.tsx` (Syne typography rhythm)
+- `src/components/Education.tsx` (Syne typography, extracted Awards text list into a stylish amber chip layout)
+- `src/components/Research.tsx` (Syne typography)
+- `src/components/Contact.tsx` (Syne typography)
+- `src/components/FreelanceWork.tsx` (Syne typography)
+- `src/components/Journey.tsx` (Syne typography)
+**Notes:** 
+- Restored original Hero photo to prevent head cropping, correctly mapped Fintry presentation to the Journey timeline.
+- Executed `git push --set-upstream origin master` for live Vercel deployments.
+
 ## 1. Typography Overhaul — Make the Type Work Harder
 
 The site currently uses Inter at mostly the same weight. Premium sites have **dramatic typographic contrast**.

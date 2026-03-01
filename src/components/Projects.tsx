@@ -69,9 +69,9 @@ const projects = [
     screenshotUrl: mlShot("https://orderfromrc.com"),
   },
   {
-    name: "Oriyomi Ayeola — Personal Portfolio",
-    desc: "Personal portfolio and professional presence site. Clean, minimal design with a focus on storytelling and a strong visual identity.",
-    tags: ["Next.js", "TypeScript", "Tailwind"],
+    name: "Oriyomi Ayeola — Memorial Tribute",
+    desc: "A dedicated memorial website built to honour the life and legacy of my late uncle. Designed with a focus on respectful storytelling, clean typography, and a seamless digital tribute experience.",
+    tags: ["Next.js", "TypeScript", "TailwindCSS"],
     link: "https://oriyomiayeola.com",
     linkLabel: "Live site",
     github: null,
@@ -123,8 +123,8 @@ export default function Projects() {
               }}
               transition={{ duration: 0.25, ease: "easeOut" }}
               className={`relative rounded-2xl overflow-hidden group ${project.highlight
-                  ? "md:col-span-2 p-[1px] hover:ring-2 ring-[#0D9488]/50 transition-all duration-300"
-                  : "border border-gray-100 bg-white"
+                ? "md:col-span-2 p-[1px] hover:ring-2 ring-[#0D9488]/50 transition-all duration-300"
+                : "border border-gray-100 bg-white"
                 }`}
             >
               {/* ── Featured cards (FPL, Fintry) ── */}

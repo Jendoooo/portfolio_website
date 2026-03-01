@@ -6,20 +6,20 @@ import { scaleIn, staggerContainer } from "@/lib/animations";
 
 const photos = [
   {
-    src: "/photos/fintry presentation .jpeg",
-    caption: "2024 - Consulting at Fintry. Presenting the District Heating Analytics Platform.",
-  },
-  {
     src: "/photos/journey-01.jpg",
-    caption: "2020 - B.Eng. First Class Honours. The engineering foundation.",
+    caption: "2020 — B.Eng. First Class Honours. The engineering foundation.",
   },
   {
     src: "/photos/journey-02.jpg",
-    caption: "2022 - Lekki Freeport Terminal. Presenting operational data models.",
+    caption: "2022 — Lekki Freeport Terminal. Presenting operational data models.",
   },
   {
-    src: "/photos/journey-04.jpg",
-    caption: "2025 - Lagos. Scaling production data architectures.",
+    src: "/photos/journey-03.jpg",
+    caption: "2024 — Glasgow, Scotland. Commencing MSc as a UK Commonwealth Shared Scholar.",
+  },
+  {
+    src: "/photos/fintry presentation .jpeg",
+    caption: "2024 — Strathclyde. Presenting the Fintry District Heating Analytics Platform.",
   },
 ];
 
