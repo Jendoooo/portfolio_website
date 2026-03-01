@@ -17,7 +17,7 @@ const skills = [
   },
   {
     cat: "Domain",
-    items: "Operations analytics - Port logistics - Energy - Consulting",
+    items: "Energy Transition - Sustainability - Operations Analytics - Port Logistics",
   },
 ];
 
@@ -37,8 +37,10 @@ export default function About() {
               <p>
                 I hold a First Class B.Eng. in Chemical Engineering and an MSc in
                 Sustainable Engineering (Distinction) from the University of
-                Strathclyde, Glasgow — where I modelled district heating systems,
-                analysed hydrogen feasibility, and developed computational energy tools.
+                Strathclyde, Glasgow. My academic and professional foundation is
+                deeply rooted in the green energy transition—modelling district
+                heating systems, analysing hydrogen feasibility, and developing
+                computational tools for sustainable infrastructure.
               </p>
               <p>
                 At Lekki Freeport Terminal - Nigeria&apos;s largest seaport - I founded

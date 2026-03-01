@@ -108,11 +108,14 @@ const freelanceProjects: FreelanceProject[] = [
 
 export default function FreelanceWork() {
   const [activeTab, setActiveTab] = useState<Tab>("All");
+  const [showAll, setShowAll] = useState(false);
 
   const filteredProjects = useMemo(() => {
     if (activeTab === "All") return freelanceProjects;
     return freelanceProjects.filter((project) => project.category === activeTab);
   }, [activeTab]);
+
+  const visibleProjects = showAll ? filteredProjects : filteredProjects.slice(0, 4);
 
   return (
     <section id="freelance" className="py-16 px-4 md:py-24 md:px-6 bg-[#F8FAFC]">
@@ -160,8 +163,8 @@ export default function FreelanceWork() {
               type="button"
               onClick={() => setActiveTab(tab)}
               className={`relative pb-3 text-sm font-semibold transition-colors ${activeTab === tab
-                  ? "text-[#1F3864]"
-                  : "text-gray-400 hover:text-[#1F3864]"
+                ? "text-[#1F3864]"
+                : "text-gray-400 hover:text-[#1F3864]"
                 }`}
             >
               {tab}
@@ -189,7 +192,7 @@ export default function FreelanceWork() {
               animate="visible"
               className="grid gap-4"
             >
-              {filteredProjects.map((project) => (
+              {visibleProjects.map((project) => (
                 <motion.article
                   key={project.name}
                   variants={scaleIn}
@@ -254,6 +257,18 @@ export default function FreelanceWork() {
             </motion.div>
           </motion.div>
         </AnimatePresence>
+
+        {/* View More Toggle */}
+        {filteredProjects.length > 4 && (
+          <div className="mt-10 flex justify-center">
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="px-6 py-2 border-2 border-[#1F3864] text-[#1F3864] font-semibold rounded-xl hover:bg-[#1F3864] hover:text-white transition-colors"
+            >
+              {showAll ? "Show Less" : "View More Work"}
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

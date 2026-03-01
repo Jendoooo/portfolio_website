@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import RevealOnScroll from "@/components/RevealOnScroll";
 import { scaleIn, staggerContainer } from "@/lib/animations";
@@ -104,8 +105,12 @@ const projects = [
 ];
 
 export default function Projects() {
+  const [showAllOther, setShowAllOther] = useState(false);
+
   const featuredProjects = projects.filter((p) => p.highlight);
   const otherProjects = projects.filter((p) => !p.highlight);
+
+  const visibleOtherProjects = showAllOther ? otherProjects : otherProjects.slice(0, 3);
 
   return (
     <section id="projects" className="py-16 px-4 md:py-24 md:px-6 bg-[#F8FAFC]">
@@ -217,7 +222,7 @@ export default function Projects() {
           viewport={{ once: true, amount: 0.1 }}
           className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {otherProjects.map((project) => (
+          {visibleOtherProjects.map((project) => (
             <motion.article
               key={project.name}
               variants={scaleIn}
@@ -269,6 +274,18 @@ export default function Projects() {
             </motion.article>
           ))}
         </motion.div>
+
+        {/* View More Toggle for Other Projects */}
+        {otherProjects.length > 3 && (
+          <div className="mt-12 flex justify-center">
+            <button
+              onClick={() => setShowAllOther(!showAllOther)}
+              className="px-6 py-2 border-2 border-[#1F3864] text-[#1F3864] font-semibold rounded-xl hover:bg-[#1F3864] hover:text-white transition-colors"
+            >
+              {showAllOther ? "Show Less" : "View More Projects"}
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
