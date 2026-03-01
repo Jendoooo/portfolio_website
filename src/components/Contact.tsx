@@ -73,6 +73,12 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (FORMSPREE_ENDPOINT.includes("YOUR_FORM_ID")) {
+      alert("Formspree endpoint not configured. Please sign up at formspree.io and paste your ID in Contact.tsx!");
+      return;
+    }
+
     setFormState("sending");
     try {
       const res = await fetch(FORMSPREE_ENDPOINT, {
@@ -92,7 +98,7 @@ export default function Contact() {
   };
 
   const inputClass =
-    "w-full rounded-xl bg-white/8 border border-white/15 text-white placeholder-white/35 px-4 py-3 text-sm font-light focus:outline-none focus:border-[#0D9488] focus:ring-1 focus:ring-[#0D9488] transition-colors";
+    "w-full rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 px-4 py-3 text-sm font-light focus:outline-none focus:border-[#0D9488] focus:ring-1 focus:ring-[#0D9488] transition-colors [color-scheme:dark] [&:-webkit-autofill]:bg-[#1F3864] [&:-webkit-autofill]:[-webkit-text-fill-color:white] [&:-webkit-autofill]:[-webkit-box-shadow:0_0_0px_1000px_#1F3864_inset]";
 
   return (
     <section id="contact" className="py-16 px-4 md:py-24 md:px-6 bg-[#1F3864]">
