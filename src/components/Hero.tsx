@@ -127,6 +127,14 @@ export default function Hero() {
                 >
                   Medium
                 </a>
+                <a
+                  href="https://www.upwork.com/freelancers/~01abbc32156f39b6b0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3 border-2 border-gray-300 text-gray-700 font-semibold rounded-xl hover:border-[#14A800] hover:text-[#14A800] transition-colors"
+                >
+                  Upwork
+                </a>
               </div>
 
               <div className="flex items-center gap-2 mt-6 text-sm text-gray-400">

@@ -6,7 +6,7 @@ export default function FloatingCV() {
   return (
     <motion.a
       href="/cv-data-engineering.pdf"
-      download
+      download="Olajide_Ayeola_CV.pdf"
       target="_blank"
       rel="noopener noreferrer"
       initial={{ opacity: 0, y: 16 }}
