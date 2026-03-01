@@ -15,7 +15,7 @@ function mlShot(url: string) {
 const projects = [
   {
     name: "Job Hunt Nigeria — Assessment Platform",
-    desc: "A comprehensive, full-stack assessment platform featuring SHL-style interactive simulations, dynamic question generation, and complex scoring algorithms. Built with a resilient frontend caching layer, Supabase row-level security, and DeepSeek AI coaching integrated via Vercel serverless proxy.",
+    desc: "A dedicated assessment preparation platform helping graduates secure roles at top-tier employers (like TotalEnergies and NLNG). It mathematically simulates high-pressure, interactive testing environments—from drag-and-drop matrices to situational judgements—providing candidates with instant algorithmic scoring and AI-powered performance coaching.",
     tags: ["React 19", "Supabase", "Tailwind", "DeepSeek API", "Framer Motion"],
     link: "https://job-hunt-nga.vercel.app",
     linkLabel: "Live Site (Auth Req)",
@@ -133,9 +133,9 @@ export default function Projects() {
                 scale: 1.01,
               }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className={`relative rounded-2xl overflow-hidden group ${project.highlight
-                ? "md:col-span-2 p-[1px] hover:ring-2 ring-[#0D9488]/50 transition-all duration-300"
-                : "border border-gray-100 bg-white"
+              className={`relative rounded-2xl overflow-hidden group border border-gray-100 bg-white ${project.highlight
+                ? "md:col-span-2 lg:col-span-1 p-[1px] hover:ring-2 ring-[#0D9488]/50 transition-all duration-300"
+                : ""
                 }`}
             >
               {/* ── Featured cards (FPL, Fintry) ── */}
