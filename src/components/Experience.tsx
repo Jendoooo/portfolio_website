@@ -34,8 +34,10 @@ const experiences = [
     location: "Lagos and Escravos, Nigeria",
     period: "Apr 2019 - Sep 2019",
     bullets: [
-      "Analysed well performance data (water injection, oil production deviations) using PROSPER for gas-lift design and decline curve analysis; supported well intervention planning.",
-      "Updated reservoir stick diagrams and well status sheets; participated in field visits and lab testing at Escravos terminal.",
+      "Received on-field and off-field training and certifications in reservoir engineering, production analysis, and optimization.",
+      "Monitored, tracked, and reported daily water injection volumes across water injection stations.",
+      "Tracked and reported Oil production deviations across the onshore asset area production platforms.",
+      "Analysed production performance of selected onshore wells using the OFM in-house software package, recommending well intervention programmes for production optimization."
     ],
   },
 ];

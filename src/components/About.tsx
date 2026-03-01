@@ -36,7 +36,7 @@ export default function About() {
             <div className="space-y-6 font-light text-[17px] leading-[1.8] text-gray-600">
               <p>
                 I hold a First Class B.Eng. in Chemical Engineering and an MSc in
-                Sustainable Engineering (Distinction) from the University of
+                Sustainable Engineering: Chemical Processing (Distinction) from the University of
                 Strathclyde, Glasgow. My academic and professional foundation is
                 deeply rooted in the green energy transition—modelling district
                 heating systems, analysing hydrogen feasibility, and developing
