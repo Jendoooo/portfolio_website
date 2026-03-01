@@ -15,8 +15,19 @@ function mlShot(url: string) {
 
 const projects = [
   {
+    name: "Fintry District Heating Analytics Dashboard",
+    desc: "Real-time Power BI analytics platform for a UK district heating network — integrating 8M+ API telemetry points. Tracks emissions, heat losses, and boiler performance across the full network. Includes RHI revenue modelling, post-upgrade impact analysis, and sensor fault diagnostics. Built on Azure SQL with DAX-driven data modelling. Published May 2025.",
+    tags: ["Power BI", "Azure SQL", "API Integration", "DAX", "Sustainable Energy"],
+    link: FINTRY_EMBED,
+    linkLabel: "Open live dashboard",
+    github: null,
+    highlight: true,
+    embedUrl: FINTRY_EMBED,
+    screenshotUrl: null,
+  },
+  {
     name: "Job Hunt Nigeria — Assessment Platform",
-    desc: "A dedicated assessment preparation platform helping graduates secure roles at top-tier employers (like TotalEnergies and NLNG). It mathematically simulates high-pressure, interactive testing environments—from drag-and-drop matrices to situational judgements—providing candidates with instant algorithmic scoring and AI-powered performance coaching.",
+    desc: "A dedicated assessment preparation platform helping graduates secure roles at top-tier employers (like TotalEnergies and NLNG). Mathematically simulates high-pressure interactive testing environments — drag-and-drop matrices, situational judgements — with algorithmic scoring and AI-powered performance coaching.",
     tags: ["React 19", "Supabase", "Tailwind", "DeepSeek API", "Framer Motion"],
     link: "https://job-hunt-nga.vercel.app",
     linkLabel: "Live Site (Auth Req)",
@@ -68,17 +79,6 @@ const projects = [
     highlight: false,
     embedUrl: null,
     screenshotUrl: mlShot("https://orderfromrc.com"),
-  },
-  {
-    name: "Fintry District Heating Analytics Dashboard",
-    desc: "Real-time Power BI analytics platform for a UK district heating network — integrating 8M+ API telemetry points. Tracks emissions, heat losses, and boiler performance. Includes RHI revenue modelling and post-upgrade impact analysis. Built with Azure SQL, published May 2025.",
-    tags: ["Power BI", "Azure SQL", "API Integration", "DAX", "Sustainable Energy"],
-    link: FINTRY_EMBED,
-    linkLabel: "Open live dashboard",
-    github: null,
-    highlight: true,
-    embedUrl: FINTRY_EMBED,
-    screenshotUrl: null,
   },
   {
     name: "3:15 Fabrics — E-Commerce",
@@ -213,7 +213,7 @@ export default function Projects() {
 
         {/* ── Other Projects (3-Column Grid) ── */}
         <RevealOnScroll>
-          <h3 className="text-2xl font-bold text-[#1F3864] mb-8">Other Client & Personal Work</h3>
+          <h3 className="text-2xl font-bold text-[#1F3864] mb-8">More Projects</h3>
         </RevealOnScroll>
         <motion.div
           variants={staggerContainer}

@@ -12,14 +12,15 @@ const stats = [
   },
   {
     mode: "count" as const,
-    target: 15,
+    target: 20,
     suffix: "+",
-    label: "Freelance data projects delivered on Upwork",
+    label: "Data & analytics projects delivered globally",
   },
   {
     mode: "count" as const,
-    target: 2,
-    label: "Production platforms shipped (FPL and e-commerce)",
+    target: 5,
+    suffix: "+",
+    label: "Production platforms shipped and live",
   },
   {
     mode: "flash" as const,

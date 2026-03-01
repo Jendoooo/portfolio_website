@@ -10,6 +10,7 @@ import Research from "@/components/Research";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
+import FloatingCV from "@/components/FloatingCV";
 
 export default function Home() {
   return (
@@ -18,15 +19,16 @@ export default function Home() {
       <PageTransition>
         <Hero />
         <About />
-        <Journey />
         <Projects />
         <FreelanceWork />
         <Experience />
+        <Journey />
         <Education />
         <Research />
         <Contact />
       </PageTransition>
       <Footer />
+      <FloatingCV />
     </>
   );
 }

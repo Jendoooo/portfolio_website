@@ -150,9 +150,9 @@ export default function FreelanceWork() {
             </a>
           </div>
           <p className="font-medium text-[15px] leading-relaxed text-[#1F3864] italic border-l-2 border-[#14A800] pl-4 mb-8 max-w-2xl bg-white p-4 shadow-sm rounded-r-lg">
-            &ldquo;I specialise in scraping sites that don&apos;t want to be scraped — anti-bot
-            protection, CAPTCHAs, dynamic rendering, government databases. If your scraper keeps
-            getting blocked, I can probably handle it.&rdquo;
+            &ldquo;20+ projects delivered across 4 countries — ETL pipelines, enterprise BI
+            dashboards, procurement intelligence platforms, and production data systems. Every
+            project is shipped clean, documented, and built to stay up.&rdquo;
           </p>
         </RevealOnScroll>
 

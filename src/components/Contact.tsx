@@ -1,3 +1,13 @@
+"use client";
+
+import { useState } from "react";
+import { motion } from "framer-motion";
+import RevealOnScroll from "@/components/RevealOnScroll";
+import { fadeUp } from "@/lib/animations";
+
+// ── Sign up free at formspree.io → create a form → paste your endpoint here ──
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+
 const links = [
   {
     label: "Email",
@@ -26,7 +36,7 @@ const links = [
     icon: (
       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-      </svg >
+      </svg>
     ),
   },
   {
@@ -41,40 +51,172 @@ const links = [
   },
 ];
 
-export default function Contact() {
-  return (
-    <section id="contact" className="py-12 px-4 md:py-16 md:px-6 bg-[#1F3864]">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start md:justify-between gap-8 md:gap-12">
-        <div className="w-full">
-          <p className="text-[#0D9488] font-semibold text-[10px] tracking-[0.25em] uppercase mb-4 text-center md:text-left">
-            Let&apos;s connect
-          </p>
-          <h2 className="font-[family-name:var(--font-syne)] font-black tracking-tight text-4xl md:text-5xl text-white mb-6">
-            Get in touch
-          </h2>
-          <p className="font-light text-[17px] leading-[1.8] text-blue-200 mb-10 w-full max-w-2xl text-center md:text-left">
-            Currently open to full-time roles in data engineering, data architecture, and operations analytics. Based in the United Kingdom (UK visa eligible).
-          </p>
+type FormState = "idle" | "sending" | "success" | "error";
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {links.map((l) => (
-              <a
-                key={l.label}
-                href={l.href}
-                target={l.href.startsWith("mailto") ? undefined : "_blank"}
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all group"
-              >
-                <span className="text-teal-400">{l.icon}</span>
-                <div>
-                  <p className="text-[10px] uppercase tracking-widest text-blue-300/70 font-semibold mb-0.5">{l.label}</p>
-                  <p className="text-white text-sm font-medium group-hover:text-teal-400 transition-colors truncate">
-                    {l.value}
-                  </p>
+export default function Contact() {
+  const [formState, setFormState] = useState<FormState>("idle");
+  const [values, setValues] = useState({ name: "", email: "", message: "" });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => setValues((v) => ({ ...v, [e.target.name]: e.target.value }));
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormState("sending");
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(values),
+      });
+      if (res.ok) {
+        setFormState("success");
+        setValues({ name: "", email: "", message: "" });
+      } else {
+        setFormState("error");
+      }
+    } catch {
+      setFormState("error");
+    }
+  };
+
+  const inputClass =
+    "w-full rounded-xl bg-white/8 border border-white/15 text-white placeholder-white/35 px-4 py-3 text-sm font-light focus:outline-none focus:border-[#0D9488] focus:ring-1 focus:ring-[#0D9488] transition-colors";
+
+  return (
+    <section id="contact" className="py-16 px-4 md:py-24 md:px-6 bg-[#1F3864]">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-[1fr_1fr] gap-12 md:gap-16 items-start">
+
+          {/* ── Left: heading + contact links ── */}
+          <RevealOnScroll>
+            <p className="text-[#0D9488] font-semibold text-[10px] tracking-[0.25em] uppercase mb-4">
+              Let&apos;s connect
+            </p>
+            <h2 className="font-[family-name:var(--font-syne)] font-black tracking-tight text-4xl md:text-5xl text-white mb-6">
+              Get in touch
+            </h2>
+            <p className="font-light text-[17px] leading-[1.8] text-blue-200 mb-10 max-w-md">
+              Open to full-time roles in data engineering, data architecture, and
+              operations analytics. Based in the United Kingdom — UK visa eligible.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {links.map((l) => (
+                <a
+                  key={l.label}
+                  href={l.href}
+                  target={l.href.startsWith("mailto") ? undefined : "_blank"}
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all group"
+                >
+                  <span className="text-teal-400 shrink-0">{l.icon}</span>
+                  <div className="min-w-0">
+                    <p className="text-[10px] uppercase tracking-widest text-blue-300/70 font-semibold mb-0.5">
+                      {l.label}
+                    </p>
+                    <p className="text-white text-sm font-medium group-hover:text-teal-400 transition-colors truncate">
+                      {l.value}
+                    </p>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </RevealOnScroll>
+
+          {/* ── Right: contact form ── */}
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+          >
+            <div className="rounded-2xl bg-white/5 border border-white/10 p-6 md:p-8">
+              <h3 className="text-lg font-bold text-white mb-6">Send a message</h3>
+
+              {formState === "success" ? (
+                <div className="flex flex-col items-center justify-center py-12 text-center gap-4">
+                  <div className="w-14 h-14 rounded-full bg-[#0D9488]/20 flex items-center justify-center">
+                    <svg className="w-7 h-7 text-[#0D9488]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <p className="text-white font-semibold text-lg">Message sent!</p>
+                  <p className="text-blue-200/70 text-sm font-light">I&apos;ll get back to you within 48 hours.</p>
+                  <button
+                    onClick={() => setFormState("idle")}
+                    className="mt-2 text-sm text-teal-400 hover:text-teal-300 font-medium transition-colors"
+                  >
+                    Send another →
+                  </button>
                 </div>
-              </a>
-            ))}
-          </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-[11px] font-semibold text-blue-200/70 uppercase tracking-widest mb-2">
+                        Name
+                      </label>
+                      <input
+                        type="text"
+                        name="name"
+                        required
+                        value={values.name}
+                        onChange={handleChange}
+                        placeholder="Your name"
+                        className={inputClass}
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[11px] font-semibold text-blue-200/70 uppercase tracking-widest mb-2">
+                        Email
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        required
+                        value={values.email}
+                        onChange={handleChange}
+                        placeholder="your@email.com"
+                        className={inputClass}
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-[11px] font-semibold text-blue-200/70 uppercase tracking-widest mb-2">
+                      Message
+                    </label>
+                    <textarea
+                      name="message"
+                      required
+                      rows={5}
+                      value={values.message}
+                      onChange={handleChange}
+                      placeholder="Tell me about the role or project..."
+                      className={`${inputClass} resize-none`}
+                    />
+                  </div>
+
+                  {formState === "error" && (
+                    <p className="text-red-400 text-sm font-light">
+                      Something went wrong — please email me directly at olajideayeola@gmail.com
+                    </p>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={formState === "sending"}
+                    className="w-full py-3 px-6 bg-[#0D9488] hover:bg-teal-600 disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold text-sm rounded-xl transition-colors shadow-lg shadow-teal-900/30"
+                  >
+                    {formState === "sending" ? "Sending…" : "Send Message →"}
+                  </button>
+                </form>
+              )}
+            </div>
+          </motion.div>
+
         </div>
       </div>
     </section>
