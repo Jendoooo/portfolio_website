@@ -67,6 +67,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://olajideayeola.vercel.app",
   },
+  verification: {
+    google: "47ZB4EEKw0WOo1ERBVM6JSCJIrdwLVGuTag11lZtK7w",
+  },
 };
 
 export default function RootLayout({
